@@ -2,17 +2,42 @@ package org.example.model;
 
 public abstract class ProductForSale {
 private String type;
-private int price;
+private double price;
 private String description;
 
 
-    protected ProductForSale(String type, int price, String description) {
+    public ProductForSale(String type, double price, String description) {
         this.type = type;
         this.price = price;
         this.description = description;
     }
 
-    int getSalesPrice(int quantity) {
+    public double getSalesPrice(int quantity) {
         return quantity*price;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public abstract void showDetails();
+
+    @Override
+    public String toString() {
+        return "ProductForSale{" +
+                "type='" + type + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
+    public final void printHello(){
+        System.out.println("heşllo");
+    }//final keywordu eklersek override edemez ihtiyacı olursa burdan kullanabilir
 }
